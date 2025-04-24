@@ -1,49 +1,72 @@
 ---
-interface Props {
-  bio: string;
-  skills: {
-    frontend: string[];
-    backend: string[];
-    tools: string[];
-  };
+interface Skill {
+  frontend: string[];
+  backend: string[];
+  tools: string[];
 }
 
-const { bio, skills } = Astro.props;
+interface Props {
+  bio?: string;
+  skills?: Skill;
+}
+
+const { 
+  bio = "I'm a passionate Full Stack Developer with a keen eye for design and user experience. I specialize in creating modern, responsive web applications that deliver exceptional user experiences.",
+  skills = {
+    frontend: ['React', 'Vue.js', 'TypeScript', 'Tailwind CSS'],
+    backend: ['Node.js', 'Express', 'Python', 'SQL/NoSQL'],
+    tools: ['Git', 'Docker', 'AWS', 'CI/CD'],
+  }
+} = Astro.props;
 ---
 
-<section id="about" class="py-16">
+<section id="about" class="py-20 bg-white dark:bg-gray-800">
   <div class="container mx-auto px-6">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-4xl font-bold mb-8">About Me</h2>
-      <div class="prose dark:prose-invert">
-        <p class="text-lg mb-6">{bio}</p>
-      </div>
-    </div>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-bold mb-8 text-center">About Me</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-12 text-center">
+        {bio}
+      </p>
 
-    <div class="max-w-3xl mx-auto mt-16">
-      <h3 class="text-3xl font-bold mb-8">Skills</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-          <h4 class="text-xl font-bold mb-2">Frontend</h4>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Frontend</h3>
           <ul class="space-y-2">
             {skills.frontend.map((skill) => (
-              <li>{skill}</li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {skill}
+              </li>
             ))}
           </ul>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-          <h4 class="text-xl font-bold mb-2">Backend</h4>
+
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Backend</h3>
           <ul class="space-y-2">
             {skills.backend.map((skill) => (
-              <li>{skill}</li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {skill}
+              </li>
             ))}
           </ul>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow">
-          <h4 class="text-xl font-bold mb-2">Tools</h4>
+
+        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">Tools & Technologies</h3>
           <ul class="space-y-2">
             {skills.tools.map((skill) => (
-              <li>{skill}</li>
+              <li class="flex items-center">
+                <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {skill}
+              </li>
             ))}
           </ul>
         </div>
