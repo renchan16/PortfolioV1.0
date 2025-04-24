@@ -11,36 +11,31 @@ const { title } = Astro.props;
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{title} | Renz Carlo</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
 	</head>
-	<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-		<header class="bg-white dark:bg-gray-800 shadow-sm">
-			<div class="container mx-auto px-6 py-4">
-				<nav class="flex items-center justify-between">
-					<a href="/" class="text-xl font-bold">Renzooo<span class="text-blue-500">.</span></a>
-					<div class="flex items-center space-x-6">
-						<a href="#about" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">About</a>
-						<a href="#tech-stacks" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Tech Stacks</a>
-						<a href="#experiences" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Experiences</a>
-						<a href="#projects" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Projects</a>
-						<a href="#contact" class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">Contact</a>
+	<body class="bg-slate-950 text-white">
+		<header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+			<div class="container mx-auto px-6">
+				<nav class="flex items-center justify-between h-16">
+					<a href="/" class="text-2xl font-bold text-white">Renzooo<span class="text-blue-500">.</span></a>
+					<div class="hidden md:flex space-x-8">
+						<a href="#about" class="text-white hover:text-blue-500 transition-colors">About</a>
+						<a href="#tech-stacks" class="text-white hover:text-blue-500 transition-colors">Tech Stacks</a>
+						<a href="#experiences" class="text-white hover:text-blue-500 transition-colors">Experiences</a>
+						<a href="#projects" class="text-white hover:text-blue-500 transition-colors">Projects</a>
+						<a href="#contact" class="text-white hover:text-blue-500 transition-colors">Contact</a>
 					</div>
 				</nav>
 			</div>
 		</header>
 
-		<main>
+		<main class="pt-16">
 			<slot />
 		</main>
-
-		<footer class="bg-white dark:bg-gray-800 py-8">
-			<div class="container mx-auto px-6 text-center">
-				<p>&copy; 2024 Renz Carlo. All rights reserved.</p>
-			</div>
-		</footer>
 	</body>
 </html>
 

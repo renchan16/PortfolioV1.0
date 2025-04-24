@@ -20,40 +20,68 @@ const { projects = [
   {
     title: 'Portfolio Website',
     description: 'A modern portfolio website built with Astro and Tailwind CSS, featuring responsive design and dark mode.',
+    image: '/images/projects/portfolio.png',
     tags: ['Astro', 'Tailwind CSS', 'TypeScript'],
     links: {
-      demo: '#',
+      demo: 'https://renz-carlo.vercel.app',
       source: 'https://github.com/renchan16/PortfolioV1.0',
     },
   },
   {
-    title: 'Coming Soon',
-    description: 'More exciting projects are in development. Stay tuned!',
-    tags: ['In Progress'],
-    links: {},
+    title: 'E-Commerce Platform',
+    description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
+    image: '/images/projects/ecommerce.png',
+    tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    links: {
+      demo: 'https://ecommerce-demo.vercel.app',
+      source: 'https://github.com/renchan16/ecommerce-platform',
+    },
+  },
+  {
+    title: 'Task Management App',
+    description: 'A collaborative task management application with real-time updates and team features.',
+    image: '/images/projects/taskmanager.png',
+    tags: ['Next.js', 'Firebase', 'Tailwind CSS'],
+    links: {
+      demo: 'https://task-manager-demo.vercel.app',
+      source: 'https://github.com/renchan16/task-manager',
+    },
+  },
+  {
+    title: 'Weather Dashboard',
+    description: 'A weather application with location-based forecasts and interactive weather maps.',
+    image: '/images/projects/weather.png',
+    tags: ['React', 'OpenWeather API', 'Chart.js'],
+    links: {
+      demo: 'https://weather-dashboard-demo.vercel.app',
+      source: 'https://github.com/renchan16/weather-dashboard',
+    },
   },
 ]} = Astro.props;
 ---
 
-<section id="showcase" class="relative py-32 bg-slate-950">
+<section id="projects" class="relative py-16 bg-slate-950">
   <!-- Geometric Pattern Overlay -->
   <div class="absolute inset-0 opacity-5">
     <div class="absolute inset-0" style="background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");"></div>
   </div>
 
   <div class="container relative mx-auto px-6">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-5xl font-bold text-white mb-6">Featured Projects</h2>
-        <div class="w-20 h-1 bg-blue-500 mx-auto mb-8"></div>
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-white mb-4">Featured Projects</h2>
+        <div class="w-20 h-1 bg-blue-500 mx-auto mb-6"></div>
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          Here are some of my recent projects that showcase my skills and experience.
+        </p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((project) => (
           <div class="group">
-            <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 hover:bg-white/20">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:bg-white/20">
               {project.image && (
-                <div class="relative h-64 overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
@@ -62,39 +90,39 @@ const { projects = [
                   <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
                 </div>
               )}
-              <div class="p-8">
-                <h3 class="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                <p class="text-slate-300 mb-6 leading-relaxed">
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-white mb-2">{project.title}</h3>
+                <p class="text-slate-300 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
-                <div class="flex flex-wrap gap-2 mb-6">
+                <div class="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span class="bg-blue-500/20 text-blue-400 px-4 py-1.5 rounded-lg text-sm font-medium">
+                    <span class="bg-blue-500/20 text-blue-400 px-3 py-1 rounded-lg text-xs font-medium">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <div class="flex space-x-4">
+                <div class="flex space-x-3">
                   {project.links.demo && (
                     <a
                       href={project.links.demo}
-                      class="inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                      class="inline-flex items-center px-3 py-1.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Eye client:load class="w-5 h-5 mr-2" />
-                      View Demo
+                      <Eye client:load class="w-4 h-4 mr-1.5" />
+                      Demo
                     </a>
                   )}
                   {project.links.source && (
                     <a
                       href={project.links.source}
-                      class="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors"
+                      class="inline-flex items-center px-3 py-1.5 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors text-sm"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Code client:load class="w-5 h-5 mr-2" />
-                      Source Code
+                      <Code client:load class="w-4 h-4 mr-1.5" />
+                      Code
                     </a>
                   )}
                 </div>

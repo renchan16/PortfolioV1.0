@@ -4,18 +4,105 @@ import TechCard from './TechCard.astro';
 // TechStack section component
 ---
 
-<section id="tech-stacks" class="relative py-32 bg-slate-950">
+<section id="tech-stacks" class="relative py-16 bg-slate-950 overflow-hidden">
   <!-- Geometric Pattern Overlay -->
   <div class="absolute inset-0 opacity-5">
     <div class="absolute inset-0" style="background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");"></div>
   </div>
 
   <div class="container relative mx-auto px-6">
-    <div class="max-w-6xl mx-auto min-h-screen flex flex-col items-center">
-      <h2 class="text-5xl font-bold text-white mb-6">Tech Stack</h2>
-      <div class="w-20 h-1 bg-blue-500 mb-12"></div>
+    <div class="max-w-6xl mx-auto flex flex-col items-center">
+      <h2 class="text-4xl font-bold text-white mb-2 animate-fade-in">Tech Stack</h2>
+      <div class="w-20 h-1 bg-blue-500 mb-6 animate-slide-in"></div>
       
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 w-full">
+      <!-- Mobile View (First 9 items + See More) -->
+      <div class="md:hidden grid grid-cols-3 gap-3 w-full animate-fade-in-up" id="tech-stack-grid">
+        <TechCard 
+          image="/images/tech/html5.png" 
+          name="HTML5" 
+        />
+        <TechCard 
+          image="/images/tech/css3.png" 
+          name="CSS3" 
+        />
+        <TechCard 
+          image="/images/tech/javascript.png" 
+          name="JavaScript" 
+        />
+        <TechCard 
+          image="/images/tech/typescript.png" 
+          name="TypeScript" 
+        />
+        <TechCard 
+          image="/images/tech/nodejs.png" 
+          name="Node.js" 
+        />
+        <TechCard 
+          image="/images/tech/jquery.png" 
+          name="jQuery" 
+        />
+        <TechCard 
+          image="/images/tech/python.png" 
+          name="Python" 
+        />
+        <TechCard 
+          image="/images/tech/java.png" 
+          name="Java" 
+        />
+        <TechCard 
+          image="/images/tech/cpp.png" 
+          name="C++" 
+        />
+      </div>
+
+      <div class="md:hidden grid grid-cols-3 gap-3 w-full hidden mt-4 animate-fade-in-up" id="more-tech-grid">
+        <TechCard 
+          image="/images/tech/php.png" 
+          name="PHP" 
+        />
+        <TechCard 
+          image="/images/tech/yarn.png" 
+          name="Yarn" 
+        />
+        <TechCard 
+          image="/images/tech/npm.png" 
+          name="npm" 
+        />
+        <TechCard 
+          image="/images/tech/react.png" 
+          name="React" 
+        />
+        <TechCard 
+          image="/images/tech/mysql.png" 
+          name="MySQL" 
+        />
+        <TechCard 
+          image="/images/tech/postgresql.png" 
+          name="PostgreSQL" 
+        />
+        <TechCard 
+          image="/images/tech/nextjs.png" 
+          name="Next.js" 
+        />
+        <TechCard 
+          image="/images/tech/docker.png" 
+          name="Docker" 
+        />
+        <TechCard 
+          image="/images/tech/astro.png" 
+          name="Astro" 
+        />
+      </div>
+
+      <button 
+        id="see-more-btn"
+        class="md:hidden mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+      >
+        See More
+      </button>
+
+      <!-- Desktop View (All items) -->
+      <div class="hidden md:grid grid-cols-4 lg:grid-cols-6 gap-3 w-full animate-fade-in-up">
         <TechCard 
           image="/images/tech/html5.png" 
           name="HTML5" 
@@ -91,4 +178,60 @@ import TechCard from './TechCard.astro';
       </div>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+    transform-origin: left;
+  }
+</style>
+
+<script>
+  const seeMoreBtn = document.getElementById('see-more-btn');
+  const moreTechGrid = document.getElementById('more-tech-grid');
+
+  seeMoreBtn.addEventListener('click', () => {
+    moreTechGrid.classList.toggle('hidden');
+    if (!moreTechGrid.classList.contains('hidden')) {
+      // Trigger reflow to restart animation
+      moreTechGrid.style.animation = 'none';
+      moreTechGrid.offsetHeight; // Trigger reflow
+      moreTechGrid.style.animation = '';
+    }
+    seeMoreBtn.textContent = moreTechGrid.classList.contains('hidden') ? 'See More' : 'See Less';
+  });
+</script> 

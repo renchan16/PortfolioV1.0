@@ -1,5 +1,6 @@
 ---
 import { Github, Linkedin, MessageSquare, ExternalLink } from 'lucide-react';
+import MobileNav from './MobileNav.astro';
 
 interface Props {
   title: string;
@@ -14,63 +15,81 @@ interface Props {
 const { title, socialLinks } = Astro.props;
 ---
 
-<section class="relative min-h-screen bg-gradient-to-br from-slate-950 to-slate-900 overflow-hidden">
+<section class="relative min-h-screen bg-slate-950 overflow-hidden">
   <!-- Geometric Pattern Overlay -->
-  <div class="absolute inset-0 opacity-10">
+  <div class="absolute inset-0 opacity-5">
     <div class="absolute inset-0" style="background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");"></div>
   </div>
 
-  <div class="container relative mx-auto px-6 py-16 h-screen flex flex-col">
-    <!-- Header -->
-    <header class="flex justify-between items-center mb-16">
-      <div class="flex items-center space-x-2">
-        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-          <span class="text-2xl font-bold text-white">R</span>
+  <header class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
+    <div class="container mx-auto px-6">
+      <nav class="flex items-center justify-between h-16">
+        <a href="/" class="text-2xl font-bold text-white">Renzooo<span class="text-blue-500">.</span></a>
+        <div class="hidden md:flex space-x-8">
+          <a href="#about" class="text-white hover:text-blue-500 transition-colors">About</a>
+          <a href="#tech-stacks" class="text-white hover:text-blue-500 transition-colors">Tech Stacks</a>
+          <a href="#experiences" class="text-white hover:text-blue-500 transition-colors">Experiences</a>
+          <a href="#projects" class="text-white hover:text-blue-500 transition-colors">Projects</a>
+          <a href="#contact" class="text-white hover:text-blue-500 transition-colors">Contact</a>
         </div>
-        <h1 class="text-2xl font-bold text-white tracking-tight">Renzooo<span class="text-blue-500">.</span></h1>
-      </div>
-
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center space-x-8">
-        <a href="#about" class="text-slate-300 hover:text-white font-medium transition-colors">About</a>
-        <a href="#tech-stacks" class="text-slate-300 hover:text-white font-medium transition-colors">Tech Stacks</a>
-        <a href="#projects" class="text-slate-300 hover:text-white font-medium transition-colors">Projects</a>
-        <a href="#contact" class="text-slate-300 hover:text-white font-medium transition-colors">Contact</a>
-        <a href={socialLinks.github} class="bg-white/10 backdrop-blur-sm text-white px-6 py-2.5 rounded-lg flex items-center space-x-2 hover:bg-white/20 transition-colors border border-white/10">
-          <span>Visit Me</span>
-          <ExternalLink client:load class="w-5 h-5" />
-        </a>
+        <MobileNav />
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- Main Content -->
-    <div class="flex-1 flex items-center">
-      <div class="max-w-4xl">
-        <h2 class="text-7xl font-bold text-white mb-6 leading-tight">
-          Hi, I'm <span class="text-blue-500">Renz Carlo</span>
-          <span class="block">Full-Stack Developer</span>
-        </h2>
-        <p class="text-xl text-slate-400 mb-12 max-w-2xl">Crafting robust and scalable web solutions with modern technologies. Focused on creating exceptional user experiences through clean, efficient code.</p>
-        
-        <!-- Social Links -->
-        <div class="flex space-x-6">
-          <a href={socialLinks.github} class="group">
-            <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
-              <Github client:load class="w-6 h-6 text-white" />
-            </div>
-          </a>
-          <a href={socialLinks.linkedin} class="group">
-            <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
-              <Linkedin client:load class="w-6 h-6 text-white" />
-            </div>
-          </a>
-          <a href={socialLinks.telegram} class="group">
-            <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
-              <MessageSquare client:load class="w-6 h-6 text-white" />
-            </div>
-          </a>
-        </div>
-      </div>
+  <div class="container relative mx-auto px-6 pt-16">
+    <div class="max-w-6xl mx-auto min-h-screen flex flex-col items-center justify-center">
+      <h1 class="text-6xl font-bold text-white mb-6 animate-fade-in">Renz Carlo</h1>
+      <div class="w-32 h-1 bg-blue-500 mb-12 animate-slide-in"></div>
+      <p class="text-xl text-gray-300 mb-8 text-center max-w-2xl animate-fade-in-up">
+        I'm a passionate developer creating beautiful and functional web applications.
+      </p>
+      <a 
+        href="#about" 
+        class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg animate-fade-in-up"
+      >
+        Visit Me
+      </a>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+    transform-origin: left;
+  }
+</style> 
