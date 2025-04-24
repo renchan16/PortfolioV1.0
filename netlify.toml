@@ -14,4 +14,7 @@
   package = "@netlify/plugin-lighthouse"
 
 [functions]
-  included_files = ["src/**/*.js"] 
+  included_files = ["src/**/*.js"]
+
+[forms]
+  honeypot = false 
