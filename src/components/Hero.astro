@@ -1,4 +1,6 @@
 ---
+import { Github, Linkedin, MessageSquare, ExternalLink } from 'lucide-react';
+
 interface Props {
   title: string;
   socialLinks: {
@@ -31,12 +33,12 @@ const { title, socialLinks } = Astro.props;
       <!-- Navigation -->
       <nav class="hidden md:flex items-center space-x-8">
         <a href="#about" class="text-slate-300 hover:text-white font-medium transition-colors">About</a>
-        <a href="#stacks" class="text-slate-300 hover:text-white font-medium transition-colors">Stacks</a>
-        <a href="#showcase" class="text-slate-300 hover:text-white font-medium transition-colors">Showcase</a>
-        <a href="#experience" class="text-slate-300 hover:text-white font-medium transition-colors">Experience</a>
+        <a href="#tech-stacks" class="text-slate-300 hover:text-white font-medium transition-colors">Tech Stacks</a>
+        <a href="#projects" class="text-slate-300 hover:text-white font-medium transition-colors">Projects</a>
+        <a href="#contact" class="text-slate-300 hover:text-white font-medium transition-colors">Contact</a>
         <a href={socialLinks.github} class="bg-white/10 backdrop-blur-sm text-white px-6 py-2.5 rounded-lg flex items-center space-x-2 hover:bg-white/20 transition-colors border border-white/10">
           <span>Visit Me</span>
-          <span class="text-lg">👨‍💻</span>
+          <ExternalLink client:load class="w-5 h-5" />
         </a>
       </nav>
     </header>
@@ -51,62 +53,22 @@ const { title, socialLinks } = Astro.props;
         <p class="text-xl text-slate-400 mb-12 max-w-2xl">Crafting robust and scalable web solutions with modern technologies. Focused on creating exceptional user experiences through clean, efficient code.</p>
         
         <!-- Social Links -->
-        <div class="flex space-x-6 mb-16">
+        <div class="flex space-x-6">
           <a href={socialLinks.github} class="group">
             <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
-              <span class="text-2xl">👨‍💻</span>
+              <Github client:load class="w-6 h-6 text-white" />
             </div>
           </a>
           <a href={socialLinks.linkedin} class="group">
             <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
-              <span class="text-2xl">💼</span>
+              <Linkedin client:load class="w-6 h-6 text-white" />
             </div>
           </a>
           <a href={socialLinks.telegram} class="group">
             <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
-              <span class="text-2xl">📱</span>
+              <MessageSquare client:load class="w-6 h-6 text-white" />
             </div>
           </a>
-        </div>
-
-        <!-- Tech Stack -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl">
-          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-              <span class="text-2xl">🐍</span>
-            </div>
-            <span class="font-semibold text-white">Python</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-              <span class="text-2xl">⚛️</span>
-            </div>
-            <span class="font-semibold text-white">React</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-              <span class="text-2xl">🚀</span>
-            </div>
-            <span class="font-semibold text-white">Next.js</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-              <span class="text-2xl">🟢</span>
-            </div>
-            <span class="font-semibold text-white">Node.js</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-              <span class="text-2xl">📦</span>
-            </div>
-            <span class="font-semibold text-white">Git</span>
-          </div>
-          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
-              <span class="text-2xl">📦</span>
-            </div>
-            <span class="font-semibold text-white">NPM</span>
-          </div>
         </div>
       </div>
     </div>

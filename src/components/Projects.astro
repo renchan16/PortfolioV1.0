@@ -1,4 +1,6 @@
 ---
+import { Eye, Code, ExternalLink } from 'lucide-react';
+
 interface Project {
   title: string;
   description: string;
@@ -80,7 +82,7 @@ const { projects = [
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <span class="text-xl mr-2">👁️</span>
+                      <Eye client:load class="w-5 h-5 mr-2" />
                       View Demo
                     </a>
                   )}
@@ -91,7 +93,7 @@ const { projects = [
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <span class="text-xl mr-2">📦</span>
+                      <Code client:load class="w-5 h-5 mr-2" />
                       Source Code
                     </a>
                   )}

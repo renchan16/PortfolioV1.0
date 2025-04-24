@@ -1,4 +1,6 @@
 ---
+import { Monitor, Cpu, Wrench, CheckCircle2 } from 'lucide-react';
+
 interface Skill {
   frontend: string[];
   backend: string[];
@@ -41,13 +43,13 @@ const {
         <div class="group">
           <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-8 rounded-2xl transition-all duration-300 hover:bg-white/20">
             <div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-              <span class="text-3xl">💻</span>
+              <Monitor client:load class="w-8 h-8 text-white" />
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Frontend</h3>
             <ul class="space-y-3">
               {skills.frontend.map((skill) => (
                 <li class="flex items-center text-slate-300 group-hover:text-white transition-colors">
-                  <span class="text-xl mr-3">✅</span>
+                  <CheckCircle2 client:load class="w-5 h-5 mr-3 text-blue-500" />
                   <span class="font-medium">{skill}</span>
                 </li>
               ))}
@@ -59,13 +61,13 @@ const {
         <div class="group">
           <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-8 rounded-2xl transition-all duration-300 hover:bg-white/20">
             <div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-              <span class="text-3xl">⚙️</span>
+              <Cpu client:load class="w-8 h-8 text-white" />
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Backend</h3>
             <ul class="space-y-3">
               {skills.backend.map((skill) => (
                 <li class="flex items-center text-slate-300 group-hover:text-white transition-colors">
-                  <span class="text-xl mr-3">✅</span>
+                  <CheckCircle2 client:load class="w-5 h-5 mr-3 text-blue-500" />
                   <span class="font-medium">{skill}</span>
                 </li>
               ))}
@@ -77,13 +79,13 @@ const {
         <div class="group">
           <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-8 rounded-2xl transition-all duration-300 hover:bg-white/20">
             <div class="w-14 h-14 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
-              <span class="text-3xl">🛠️</span>
+              <Wrench client:load class="w-8 h-8 text-white" />
             </div>
             <h3 class="text-2xl font-bold text-white mb-4">Tools & Tech</h3>
             <ul class="space-y-3">
               {skills.tools.map((skill) => (
                 <li class="flex items-center text-slate-300 group-hover:text-white transition-colors">
-                  <span class="text-xl mr-3">✅</span>
+                  <CheckCircle2 client:load class="w-5 h-5 mr-3 text-blue-500" />
                   <span class="font-medium">{skill}</span>
                 </li>
               ))}

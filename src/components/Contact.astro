@@ -1,4 +1,6 @@
 ---
+import { Mail, MapPin, Linkedin, Github, Twitter, Send } from 'lucide-react';
+
 interface ContactInfo {
   email: string;
   location: string;
@@ -36,7 +38,7 @@ const { contactInfo } = Astro.props;
           <div class="space-y-8">
             <div class="flex items-start space-x-4">
               <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span class="text-2xl">📧</span>
+                <Mail client:load class="w-6 h-6 text-white" />
               </div>
               <div>
                 <h4 class="text-lg font-semibold text-white mb-1">Email</h4>
@@ -46,7 +48,7 @@ const { contactInfo } = Astro.props;
 
             <div class="flex items-start space-x-4">
               <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                <span class="text-2xl">📍</span>
+                <MapPin client:load class="w-6 h-6 text-white" />
               </div>
               <div>
                 <h4 class="text-lg font-semibold text-white mb-1">Location</h4>
@@ -60,21 +62,21 @@ const { contactInfo } = Astro.props;
                 {contactInfo.social.linkedin && (
                   <a href={contactInfo.social.linkedin} class="group">
                     <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:bg-white/20">
-                      <span class="text-2xl">💼</span>
+                      <Linkedin client:load class="w-6 h-6 text-white" />
                     </div>
                   </a>
                 )}
                 {contactInfo.social.github && (
                   <a href={contactInfo.social.github} class="group">
                     <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:bg-white/20">
-                      <span class="text-2xl">👨‍💻</span>
+                      <Github client:load class="w-6 h-6 text-white" />
                     </div>
                   </a>
                 )}
                 {contactInfo.social.twitter && (
                   <a href={contactInfo.social.twitter} class="group">
                     <div class="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center transition-all duration-200 group-hover:bg-white/20">
-                      <span class="text-2xl">🐦</span>
+                      <Twitter client:load class="w-6 h-6 text-white" />
                     </div>
                   </a>
                 )}
@@ -128,9 +130,10 @@ const { contactInfo } = Astro.props;
             </div>
             <button
               type="submit"
-              class="w-full bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+              class="w-full bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 flex items-center justify-center space-x-2"
             >
-              Send Message
+              <span>Send Message</span>
+              <Send client:load class="w-5 h-5" />
             </button>
           </form>
         </div>

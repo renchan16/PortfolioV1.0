@@ -3,6 +3,8 @@ import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
+import TechStack from '../components/TechStack.astro';
+import Experiences from '../components/Experiences.astro';
 import '../styles/global.css';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -20,8 +22,8 @@ const socialLinks = {
 const aboutData = {
 	bio: "I'm a passionate Full Stack Developer with a keen eye for design and user experience. I specialize in creating modern, responsive web applications that deliver exceptional user experiences.",
 	skills: {
-		frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-		backend: ['Node.js', 'Python', 'Express', 'MongoDB'],
+		frontend: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
+		backend: ['Node.js', 'Express', 'MongoDB'],
 		tools: ['Git', 'Docker', 'AWS', 'CI/CD'],
 	}
 };
@@ -54,7 +56,11 @@ const contactInfo = {
 				bio={aboutData.bio}
 				skills={aboutData.skills}
 			/>
-			<Projects />
+			<TechStack />
+			<Experiences />
+			<div class="bg-slate-900">
+				<Projects />
+			</div>
 			<Contact contactInfo={contactInfo} />
 		</main>
 	</body>

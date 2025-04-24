@@ -1,0 +1,21 @@
+---
+interface Props {
+  image: string;
+  name: string;
+}
+
+const { image, name } = Astro.props;
+---
+
+<div class="group">
+  <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-3 transition-all duration-300 hover:bg-white/20 aspect-square flex flex-col items-center justify-center">
+    <div class="w-12 h-12 mb-1">
+      <img 
+        src={image} 
+        alt={name}
+        class="w-full h-full object-contain"
+      />
+    </div>
+    <h3 class="text-xs font-semibold text-white text-center">{name}</h3>
+  </div>
+</div> 
