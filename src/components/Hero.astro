@@ -12,91 +12,109 @@ interface Props {
 const { title, socialLinks } = Astro.props;
 ---
 
-<section class="relative h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-950 to-blue-950">
-  <div class="container mx-auto px-6">
-    <!-- Logo -->
-    <div class="absolute top-8 left-8">
-      <h1 class="text-3xl font-bold text-white">Renzooo.</h1>
-    </div>
+<section class="relative min-h-screen bg-gradient-to-br from-slate-950 to-slate-900 overflow-hidden">
+  <!-- Geometric Pattern Overlay -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0" style="background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");"></div>
+  </div>
 
-    <!-- Navigation -->
-    <nav class="absolute top-8 right-8 flex items-center space-x-8">
-      <a href="#about" class="text-white hover:text-gray-300">About</a>
-      <a href="#stacks" class="text-white hover:text-gray-300">Stacks</a>
-      <a href="#showcase" class="text-white hover:text-gray-300">Showcase</a>
-      <a href="#experience" class="text-white hover:text-gray-300">Experience</a>
-      <a href={socialLinks.github} class="bg-gray-100 text-gray-900 px-4 py-2 rounded-full flex items-center space-x-2 hover:bg-gray-200 transition-colors">
-        <span>Visit Me</span>
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
-        </svg>
-      </a>
-    </nav>
+  <div class="container relative mx-auto px-6 py-16 h-screen flex flex-col">
+    <!-- Header -->
+    <header class="flex justify-between items-center mb-16">
+      <div class="flex items-center space-x-2">
+        <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+          <span class="text-2xl font-bold text-white">R</span>
+        </div>
+        <h1 class="text-2xl font-bold text-white tracking-tight">Renzooo<span class="text-blue-500">.</span></h1>
+      </div>
 
-    <!-- Main Content -->
-    <div class="text-center">
-      <h2 class="text-6xl font-bold text-white mb-4">Hi, I'm Renz Carlo!</h2>
-      <p class="text-3xl text-gray-300 mb-8">Full-Stack Web Developer</p>
-      
-      <!-- Social Links -->
-      <div class="flex justify-center space-x-6 mb-12">
-        <a href={socialLinks.facebook} class="text-blue-400 hover:text-blue-300">
-          <span class="sr-only">Facebook</span>
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path>
-          </svg>
-        </a>
-        <a href={socialLinks.github} class="text-gray-400 hover:text-gray-300">
-          <span class="sr-only">GitHub</span>
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#about" class="text-slate-300 hover:text-white font-medium transition-colors">About</a>
+        <a href="#stacks" class="text-slate-300 hover:text-white font-medium transition-colors">Stacks</a>
+        <a href="#showcase" class="text-slate-300 hover:text-white font-medium transition-colors">Showcase</a>
+        <a href="#experience" class="text-slate-300 hover:text-white font-medium transition-colors">Experience</a>
+        <a href={socialLinks.github} class="bg-white/10 backdrop-blur-sm text-white px-6 py-2.5 rounded-lg flex items-center space-x-2 hover:bg-white/20 transition-colors border border-white/10">
+          <span>Visit Me</span>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
           </svg>
         </a>
-        <a href={socialLinks.telegram} class="text-blue-400 hover:text-blue-300">
-          <span class="sr-only">Telegram</span>
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-          </svg>
-        </a>
-        <a href={socialLinks.linkedin} class="text-blue-400 hover:text-blue-300">
-          <span class="sr-only">LinkedIn</span>
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </a>
-        <a href={socialLinks.discord} class="text-indigo-400 hover:text-indigo-300">
-          <span class="sr-only">Discord</span>
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-          </svg>
-        </a>
-      </div>
+      </nav>
+    </header>
 
-      <!-- Tech Stack Badges -->
-      <div class="flex justify-center flex-wrap gap-4">
-        <div class="bg-white text-gray-900 px-6 py-2 rounded-full flex items-center space-x-2">
-          <img src="/python-logo.svg" alt="Python" class="w-6 h-6" />
-          <span class="font-semibold">PYTHON</span>
+    <!-- Main Content -->
+    <div class="flex-1 flex items-center">
+      <div class="max-w-4xl">
+        <h2 class="text-7xl font-bold text-white mb-6 leading-tight">
+          Hi, I'm <span class="text-blue-500">Renz Carlo</span>
+          <span class="block">Full-Stack Developer</span>
+        </h2>
+        <p class="text-xl text-slate-400 mb-12 max-w-2xl">Crafting robust and scalable web solutions with modern technologies. Focused on creating exceptional user experiences through clean, efficient code.</p>
+        
+        <!-- Social Links -->
+        <div class="flex space-x-6 mb-16">
+          <a href={socialLinks.github} class="group">
+            <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+          </a>
+          <a href={socialLinks.linkedin} class="group">
+            <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+          </a>
+          <a href={socialLinks.telegram} class="group">
+            <div class="w-12 h-12 rounded-lg bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/10 transition-all duration-200 group-hover:bg-white/20">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+              </svg>
+            </div>
+          </a>
         </div>
-        <div class="bg-white text-gray-900 px-6 py-2 rounded-full flex items-center space-x-2">
-          <img src="/react-logo.svg" alt="React" class="w-6 h-6" />
-          <span class="font-semibold">REACT</span>
-        </div>
-        <div class="bg-white text-gray-900 px-6 py-2 rounded-full flex items-center space-x-2">
-          <img src="/npm-logo.svg" alt="NPM" class="w-6 h-6" />
-          <span class="font-semibold">NPM</span>
-        </div>
-        <div class="bg-white text-gray-900 px-6 py-2 rounded-full flex items-center space-x-2">
-          <img src="/git-logo.svg" alt="Git" class="w-6 h-6" />
-          <span class="font-semibold">GIT</span>
-        </div>
-        <div class="bg-white text-gray-900 px-6 py-2 rounded-full flex items-center space-x-2">
-          <img src="/nextjs-logo.svg" alt="Next.js" class="w-6 h-6" />
-          <span class="font-semibold">NEXTJS</span>
-        </div>
-        <div class="bg-white text-gray-900 px-6 py-2 rounded-full flex items-center space-x-2">
-          <img src="/nodejs-logo.svg" alt="Node.js" class="w-6 h-6" />
-          <span class="font-semibold">NODEJS</span>
+
+        <!-- Tech Stack -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-3xl">
+          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <img src="/python-logo.svg" alt="Python" class="w-6 h-6" />
+            </div>
+            <span class="font-semibold text-white">Python</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <img src="/react-logo.svg" alt="React" class="w-6 h-6" />
+            </div>
+            <span class="font-semibold text-white">React</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <img src="/nextjs-logo.svg" alt="Next.js" class="w-6 h-6" />
+            </div>
+            <span class="font-semibold text-white">Next.js</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <img src="/nodejs-logo.svg" alt="Node.js" class="w-6 h-6" />
+            </div>
+            <span class="font-semibold text-white">Node.js</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <img src="/git-logo.svg" alt="Git" class="w-6 h-6" />
+            </div>
+            <span class="font-semibold text-white">Git</span>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex items-center space-x-4 hover:bg-white/20 transition-all duration-200">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center">
+              <img src="/npm-logo.svg" alt="NPM" class="w-6 h-6" />
+            </div>
+            <span class="font-semibold text-white">NPM</span>
+          </div>
         </div>
       </div>
     </div>

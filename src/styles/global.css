@@ -5,17 +5,60 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-primary: #1E293B;
+    --color-secondary: #334155;
+    --color-accent: #3B82F6;
+    --color-text: #1E293B;
+    --color-text-light: #64748B;
+    --color-background: #F8FAFC;
+    --color-border: #E2E8F0;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply antialiased;
+    @apply antialiased bg-slate-50 text-slate-900;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-slate-900;
   }
 }
 
 @layer components {
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-semibold rounded-md shadow-sm transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-slate-900 text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-slate-900 border-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900;
+  }
+
+  .section {
+    @apply py-20 sm:py-24;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-200 transition-all duration-200 hover:shadow-md;
+  }
+
+  .input {
+    @apply block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-900 focus:ring-slate-900 sm:text-sm;
+  }
+
+  .link {
+    @apply text-slate-900 hover:text-slate-700 font-medium transition-colors duration-200;
   }
 }
