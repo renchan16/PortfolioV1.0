@@ -1,5 +1,4 @@
 ---
-import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Projects from '../components/Projects.astro';
@@ -60,14 +59,36 @@ const profile = {
 		},
 	},
 };
+
+const socialLinks = {
+	github: 'https://github.com/renchan16',
+	linkedin: 'https://linkedin.com/in/your-linkedin',
+	telegram: 'https://t.me/your-telegram',
+	discord: 'https://discord.com/users/your-discord',
+	facebook: 'https://facebook.com/your-facebook'
+};
+
 ---
 
-<Layout title="Portfolio">
-	<Hero name={profile.name} title={profile.title} />
-	<About bio={profile.bio} skills={profile.skills} />
-	<Projects projects={profile.projects} />
-	<Contact contactInfo={profile.contactInfo} />
-</Layout>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Renz Carlo - Full-Stack Web Developer</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	</head>
+	<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+		<main>
+			<Hero 
+				title="Full-Stack Web Developer"
+				socialLinks={socialLinks}
+			/>
+			<About />
+			<Projects />
+			<Contact />
+		</main>
+	</body>
+</html>
 
 <script>
 	// Add smooth scrolling behavior
