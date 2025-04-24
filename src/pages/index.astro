@@ -25,6 +25,16 @@ const aboutData = {
 	}
 };
 
+const contactInfo = {
+	email: 'renz.carlo@example.com',
+	location: 'Manila, Philippines',
+	social: {
+		linkedin: 'https://linkedin.com/in/your-linkedin',
+		github: 'https://github.com/renchan16',
+		twitter: 'https://twitter.com/your-twitter'
+	}
+};
+
 ---
 
 <html lang="en">
@@ -45,7 +55,7 @@ const aboutData = {
 				skills={aboutData.skills}
 			/>
 			<Projects />
-			<Contact />
+			<Contact contactInfo={contactInfo} />
 		</main>
 	</body>
 </html>
