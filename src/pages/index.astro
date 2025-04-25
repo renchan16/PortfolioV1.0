@@ -5,6 +5,7 @@ import Projects from '../components/Projects.astro';
 import Contact from '../components/Contact.astro';
 import TechStack from '../components/TechStack.astro';
 import Experiences from '../components/Experiences.astro';
+import Welcome from '../components/Welcome.astro';
 import '../styles/global.css';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -48,6 +49,7 @@ const contactInfo = {
 	</head>
 	<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 		<main>
+			<Welcome />
 			<Hero 
 				title="Full-Stack Web Developer"
 				socialLinks={socialLinks}

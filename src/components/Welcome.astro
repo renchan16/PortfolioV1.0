@@ -1,6 +1,7 @@
 ---
 // Welcome section component
-import { ArrowDown } from 'lucide-react';
+import { Download, ArrowDown } from 'lucide-react';
+import CV from '../assets/Caritativo, Renz Carlo - CV.pdf'
 ---
 
 <section class="relative min-h-screen bg-slate-950 overflow-hidden">
@@ -16,13 +17,18 @@ import { ArrowDown } from 'lucide-react';
     <div class="max-w-6xl mx-auto min-h-screen flex flex-col items-center justify-center">
       <!-- Animated Text Elements -->
       <div class="text-center space-y-6">
-        <h1 class="text-6xl md:text-7xl font-bold text-white mb-6 animate-fade-in">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
-            Renz Carlo
-          </span>
-        </h1>
+        <div class="animate-fade-in">
+          <h1 class="text-5xl md:text-7xl font-bold text-white mb-2">
+            <span class="text-gray-300">Hi, I'm</span>
+          </h1>
+          <h1 class="text-6xl md:text-8xl font-bold mb-6">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+              Renz Carlo!
+            </span>
+          </h1>
+        </div>
         
-        <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mb-8 animate-slide-in"></div>
+        <div class="w-64 md:w-170 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mb-8 animate-slide-in"></div>
         
         <p class="text-xl md:text-2xl text-gray-300 mb-8 text-center max-w-2xl animate-fade-in-up">
           Crafting beautiful and functional web experiences with modern technologies.
@@ -30,11 +36,15 @@ import { ArrowDown } from 'lucide-react';
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
           <a 
-            href="#about" 
+            href={CV}
             class="group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center"
+            target="_blank" 
+            rel="noopener noreferrer"
           >
-            Explore My Work
-            <ArrowDown client:load class="w-5 h-5 ml-2 group-hover:translate-y-1 transition-transform duration-300" />
+            Curriculum Vitae
+            <div class="ml-2">
+            <Download client:load class="w-5 h-5 ml-4 group-hover:translate-y-2 transition-transform duration-300" />
+            </div>
           </a>
           <a 
             href="#contact" 
@@ -88,7 +98,7 @@ import { ArrowDown } from 'lucide-react';
   }
 
   .animate-slide-in {
-    animation: slideIn 0.8s ease-out forwards;
+    animation: slideIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     transform-origin: left;
   }
 </style> 
