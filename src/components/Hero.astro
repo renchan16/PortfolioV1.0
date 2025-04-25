@@ -15,7 +15,7 @@ interface Props {
 const { title, socialLinks } = Astro.props;
 ---
 
-<section class="relative min-h-screen bg-slate-950 overflow-hidden">
+<section class="relative bg-slate-950 overflow-hidden">
   <!-- Geometric Pattern Overlay -->
   <div class="absolute inset-0 opacity-5">
     <div class="absolute inset-0" style="background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");"></div>
@@ -36,22 +36,6 @@ const { title, socialLinks } = Astro.props;
       </nav>
     </div>
   </header>
-
-  <div class="container relative mx-auto px-6 pt-16">
-    <div class="max-w-6xl mx-auto min-h-screen flex flex-col items-center justify-center">
-      <h1 class="text-6xl font-bold text-white mb-6 animate-fade-in">Renz Carlo</h1>
-      <div class="w-32 h-1 bg-blue-500 mb-12 animate-slide-in"></div>
-      <p class="text-xl text-gray-300 mb-8 text-center max-w-2xl animate-fade-in-up">
-        I'm a passionate developer creating beautiful and functional web applications.
-      </p>
-      <a 
-        href="#about" 
-        class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg animate-fade-in-up"
-      >
-        Visit Me
-      </a>
-    </div>
-  </div>
 </section>
 
 <style>
@@ -76,7 +60,7 @@ const { title, socialLinks } = Astro.props;
       transform: scaleX(0);
     }
     to {
-      transform: scaleX(1);
+      transform: scaleX(2);
     }
   }
 
